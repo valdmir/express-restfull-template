@@ -9,8 +9,8 @@ var express = require('express'),
   // get config
   config=require('./config');
   // for add user model
-var User= require('./models/UserModel');
-var Expense=require('./models/ExpenseModel');
+var User= require('./Models/UserModel');
+var Expense=require('./Models/ExpenseModel');
 var app = express();
 app.set('superSecret',config.secret);
 // add database
