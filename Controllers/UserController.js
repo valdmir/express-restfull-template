@@ -1,6 +1,6 @@
 // Name Controller
 jwt= require('jsonwebtoken');
-request=require('../Requests/AuthenticateRequest');
+requestAuthenticate=require('../Requests/AuthenticateRequest');
 requestStore=require('../Requests/StoreUserRequest');
 var UserController = function(User,jwt,app){
   // type post
@@ -59,7 +59,7 @@ var UserController = function(User,jwt,app){
   };
   var auth= function(req,res){
     var query={};
-    req.checkBody(request);
+    req.checkBody(requestAuthenticate);
     var errors=req.validationErrors();
     if(errors){
       res.json(errors);

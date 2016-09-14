@@ -36,8 +36,8 @@ userRouter=require('./Routes/UserRoutes')(User,jwt,app);
 expenseRouter=require('./Routes/ExpenseRoutes')(Expense);
 
 // create router
-app.use('/api/expenses',expenseRouter);
 app.use('/api/users',userRouter);
+app.use('/api/expenses',expenseRouter);
 
 
 app.listen(port,function(){
