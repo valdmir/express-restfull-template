@@ -6,10 +6,10 @@ var routes = function(User,jwt,app){
   var UserController=require('../Controllers/UserController')(User,jwt,app);
   // for api routes
   UserRouter.route('/auth').post(UserController.auth);
+  UserRouter.route('/setup').get(UserController.setup);
   // route middleware to verify a token
   UserRouter.use(utils.middleware());
-  UserRouter.route('/').get(UserController.get);
-  UserRouter.route('/setup').get(UserController.setup);
+  UserRouter.route('/').get(UserController.get).post(UserController.post);
 
   return UserRouter;
 };

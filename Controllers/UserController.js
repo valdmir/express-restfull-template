@@ -3,13 +3,29 @@ jwt= require('jsonwebtoken');
 request=require('../Requests/AuthenticateRequest');
 var UserController = function(User,jwt,app){
   // type post
+  var post= function(req,res){
+    req.checkBody(request);
+    var errors=req.validationErrors();
+    if(errors){
+      res.json(errors);
+
+    }
+    else{
+      var user = new User(req.body);
+      console.log(user);
+      user.save();
+      res.status(201).json(user);
+    }
+
+
+  };
   var setup= function(req,res){
     // var user = new User(req.body);
     var user = new User({
       email:'testing@testing.com',
       name: 'Nick Cerminara',
       password: 'testing123',
-      admin: true
+      is_admin: true
     });
 
     console.log(user);
