@@ -32,8 +32,8 @@ app.get('/',function(req,res){
 
 // expenseRouter= require('./Routes/expenseRouter')(Expense);
 // bookRouter = require('./Routes/bookRoutes')(Book);
-userRouter=require('./Routes/userRoutes')(User,jwt,app);
-expenseRouter=require('./Routes/expenseRoutes')(Expense);
+userRouter=require('./Routes/UserRoutes')(User,jwt,app);
+expenseRouter=require('./Routes/ExpenseRoutes')(Expense);
 
 // create router
 app.use('/api/expenses',expenseRouter);
