@@ -9,7 +9,7 @@ var routes = function(Expense){
     .get(ExpenseController.get);
 
     // implementation middleware
-    // ExpenseRouter.use(utils.middleware());
+    ExpenseRouter.use(utils.middleware());
     ExpenseRouter.use('/:expenseId',function(req,res,next){
       var query={};
       Expense.findById(req.params.expenseId,query,function(err,expense){
