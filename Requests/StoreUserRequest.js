@@ -13,7 +13,7 @@ module.exports={
      notEmpty: true,
      isBoolean:{
        errorMessage:'Type must boolean',
-     }
+     },
      errorMessage:'is Admin is required',
    }
 }

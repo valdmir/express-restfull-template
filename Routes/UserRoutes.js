@@ -9,7 +9,7 @@ var routes = function(User,jwt,app){
   UserRouter.route('/setup').get(UserController.setup);
   // route middleware to verify a token
   UserRouter.use(utils.middleware());
-  UserRouter.route('/').get(UserController.get).post(UserController.post);
+  UserRouter.route('/').post(UserController.post).get(UserController.get);
 
   return UserRouter;
 };

@@ -4,12 +4,12 @@ var routes = function(Expense){
   var ExpenseRouter = express.Router();
   var ExpenseController=require('../Controllers/ExpenseController')(Expense);
   // for api routes
+  ExpenseRouter.use(utils.middleware());
   ExpenseRouter.route('/')
     .post(ExpenseController.post)
     .get(ExpenseController.get);
 
     // implementation middleware
-    ExpenseRouter.use(utils.middleware());
     ExpenseRouter.use('/:expenseId',function(req,res,next){
       var query={};
       Expense.findById(req.params.expenseId,query,function(err,expense){

@@ -1,14 +1,14 @@
 // Name Controller
 jwt= require('jsonwebtoken');
 request=require('../Requests/AuthenticateRequest');
+requestStore=require('../Requests/StoreUserRequest');
 var UserController = function(User,jwt,app){
   // type post
   var post= function(req,res){
-    req.checkBody(request);
+    req.checkBody(requestStore);
     var errors=req.validationErrors();
     if(errors){
       res.json(errors);
-
     }
     else{
       var user = new User(req.body);
@@ -16,7 +16,6 @@ var UserController = function(User,jwt,app){
       user.save();
       res.status(201).json(user);
     }
-
 
   };
   var setup= function(req,res){
@@ -99,6 +98,7 @@ var UserController = function(User,jwt,app){
   return {
     setup :setup,
     get:get,
+    post:post,
     auth:auth,
   };
 
