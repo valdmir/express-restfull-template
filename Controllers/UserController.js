@@ -5,6 +5,7 @@ requestStore=require('../Requests/StoreUserRequest');
 var UserController = function(User,jwt,app){
   // type post
   var post= function(req,res){
+    console.log(req);
     req.checkBody(requestStore);
     var errors=req.validationErrors();
     if(errors){
