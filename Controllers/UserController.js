@@ -8,7 +8,7 @@ var UserController = function(User,jwt,app){
     req.checkBody(requestStore);
     var errors=req.validationErrors();
     if(errors){
-      res.json(errors);
+      res.json({success:false,errors:errors});
     }
     else{
       var user = new User(req.body);
@@ -62,8 +62,7 @@ var UserController = function(User,jwt,app){
     req.checkBody(requestAuthenticate);
     var errors=req.validationErrors();
     if(errors){
-      res.json(errors);
-
+      res.json({success:false,errors:errors});
     }
     else{
       if(req.body.email){

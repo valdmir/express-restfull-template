@@ -6,7 +6,7 @@ var ExpenseController = function(Expense){
     req.checkBody(request);
     var errors=req.validationErrors();
     if(errors){
-      res.json(errors);
+      res.json({success:false,errors:errors});
 
     }
     else{
