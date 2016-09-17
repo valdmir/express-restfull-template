@@ -8,6 +8,6 @@ var routes = function(User,jwt,app){
   AuthRouter.route('/').post(UserController.auth);
   AuthRouter.route('/generate').get(UserController.setup);
 
-  return AuthRoutes;
+  return AuthRouter;
 };
 module.exports= routes;
