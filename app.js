@@ -11,6 +11,7 @@ var express = require('express'),
   // for add user model
 var User= require('./Models/UserModel');
 var Expense=require('./Models/ExpenseModel');
+var cors= require('cors');
 var app = express();
 app.set('superSecret',config.secret);
 // add database
@@ -25,11 +26,15 @@ app.use(expressValidator());
 app.use(bodyParser.urlencoded({extended:true}));
 // use morgan to log requests to the console
 app.use(morgan('dev'));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Accept");
-  next();
-});
+app.use(cors());
+
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:9005");
+//   res.header("Access-Control-Allow-Methods","GET, POST, PUT, OPTIONS");
+//   res.header("Acesss-Control-Allow-Credentials",true);
+//   res.header("Access-Control-Allow-Headers", "X-Powered-By, Content-Type, Authorization, Accept ");
+//   next();
+// });
 
 app.get('/',function(req,res){
   res.send('welcome to my API');

@@ -19,7 +19,6 @@ module.exports.middleware = function () {
     var func = function (req, res, next) {
 
         var token = exports.fetch(req.headers);
-
         if (token) {
           // verifies secret and checks exp
           jwt.verify(token, config.secret, function(err, decoded) {
